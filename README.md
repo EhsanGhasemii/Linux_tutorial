@@ -22,3 +22,12 @@ Password: <your_password>
 put <your_file_name_in_your_local_host>
 bye`
 ```
+
+
+
+
+## Docker
+```bash
+sudo ip route
+sudo ip route delete
+```
