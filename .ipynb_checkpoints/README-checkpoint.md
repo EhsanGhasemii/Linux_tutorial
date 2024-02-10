@@ -97,6 +97,7 @@ Restart the Apache web server to apply the changes:
 ```bash
 sudo service apache2 restart
 ```
+You can access the web page that you create with typing "https://localhost/." in your browser. 
 If you're accessing the web page from a different machine on the same network, you can use the IP address of the machine running the Apache server instead of localhost. For example, if the IP address of the machine is 192.168.0.100, you can access the web page by visiting http://192.168.0.100/.
 
 Remember to make sure that your machine's firewall allows incoming connections on port 80 (HTTP) if you want to access the web page from other devices on the network.
