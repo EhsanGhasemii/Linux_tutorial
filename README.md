@@ -119,16 +119,41 @@ Remember to make sure that your machine's firewall allows incoming connections o
 
 
 
+## Ffmpeg
+
+without sound
+``` bash 
+ffmpeg -video_size 1024x768 -framerate 25 -f x11grab -i :0.0+100,200 output.mp4
+```
+In this command:
+
+- video_size 1024x768 specifies the resolution of the captured screen.
+- framerate 25 sets the frame rate.
+- i :0.0+100,200 captures the image from the desktop, starting with the upper-left corner at coordinates (100, 200).
+
+If you need audio as well, you can add ALSA or PulseAudio input devices. For ALSA:
+
+``` bash
+ffmpeg -video_size 1024x768 -framerate 25 -f x11grab -i :0.0+100,200 -f alsa -ac 2 -i hw:0 output.mkv
 
 
+ffmpeg -video_size 1024x768 -framerate 25 -f x11grab -i :0.0+100,200 -f pulse -ac 2 -i default output.mkv
+```
 
+Use the -video_size flag to set the resolution. For example:
+``` bash
+ffmpeg -video_size 640x480 -framerate 25 -f x11grab -i :0.0+100,200 output.mp4
+```
 
+You can control the video quality by adjusting the bitrate. Higher bitrate results in better quality but larger file size.
 
+Use the -b:v flag to set the video bitrate. For example:
+``` bash
+ffmpeg -video_size 640x480 -framerate 25 -f x11grab -i :0.0+100,200 -b:v 1000k output.mp4
+```
 
+To record your entire screen using FFmpeg, you can adjust the x11grab command to capture the full screen. Here’s how:
 
-
-
-
-
-
-
+``` bash
+ffmpeg -f x11grab -video_size 1920x1080 -framerate 30 -i :0.0 output.mp4
+```
