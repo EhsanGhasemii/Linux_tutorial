@@ -157,3 +157,23 @@ To record your entire screen using FFmpeg, you can adjust the x11grab command to
 ``` bash
 ffmpeg -f x11grab -video_size 1920x1080 -framerate 30 -i :0.0 output.mp4
 ```
+
+I use always: 
+``` bash
+ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0+0,0 -f alsa -ac 2 -i hw:0 output.mkv
+```
+
+
+How to record voice? 
+``` bash
+ffmpeg -f alsa -i default output.wav
+```
+
+
+## Network
+How to reset your network config:
+
+```bash
+sudo rm /etc/resolv.conf
+sudo ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
+```
