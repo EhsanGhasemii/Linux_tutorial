@@ -177,3 +177,25 @@ How to reset your network config:
 sudo rm /etc/resolv.conf
 sudo ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
 ```
+
+
+
+## Golang
+
+Initialize a Go module:
+```bash
+go mod init <module-name>
+```
+
+Add the required dependencies:
+```bash
+go get <...>
+go get google.golang.org/grpc
+```
+
+Tidy up the dependencies:
+```bash
+go mod tidy
+```
+
+
