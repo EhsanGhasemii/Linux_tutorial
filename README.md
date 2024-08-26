@@ -1,5 +1,76 @@
 # Linux Tutorial
 
+## Linux command
+to find some file in a directory.
+```bash
+find .
+find -type f -name "f*"
+find -type d
+find / -type f -iname "*.py" > python-file-txt
+```
+
+to find a pattern in some files.
+```bash
+grep -i hello hello.txt # -i is for case Insensivity
+grep -i -r hello .
+```
+
+redirection.
+```bash 
+echo hello > file.txt
+ls /etc > file2.txt # >> sign is for appending mode
+```
+
+chaining some multiple command
+```bash
+mdkir test; cd test; echo done
+mkdir test&& cd test && echo done
+mkdir test || echo "directory exists"
+```
+
+pyping
+```bash
+ls /bin | less
+ls /bin | head -n 5
+```
+
+breaking long commands:
+```bash
+mkdir hello; \
+cd hello;\
+echo done
+```
+
+Environments Variables:
+```bash
+printenv
+printenv PATH
+echo $PATH
+export DB_USER=mosh
+printenv DB_USER
+echo $DB_USER
+# ----------------
+echo DB_USER=mosh >> .bashrc
+source .bashrc
+```
+
+Creating and kill process
+```bash
+ps 
+sleep 100 &
+ps
+kill <ps_ID>
+```
+
+Permission access:
+```bash
+chmod u+x <file_name>
+chmod g+w <file_name>
+chmod o-r <file_name>
+```
+
+
+
 ## nvim 
 
 ### search something
