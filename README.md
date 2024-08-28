@@ -309,5 +309,5 @@ Here are the steps:
 sudo su
 cat /etc/resolv.conf
 mv /etc/resolv.conf /etc/resolv.conf.bak
-vim /etc/resolv.conf # fill with output of cat
+vim /etc/resolv.conf # fill with output of cat + your dns server
 ```
