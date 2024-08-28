@@ -270,3 +270,44 @@ go mod tidy
 ```
 
 
+
+## Set DNS
+To set your DNS to `192.168.230.159`, you can update your `/etc/resolv.conf` file. However, since your current `resolv.conf` is managed by `systemd-resolved`, you'll need to update the configuration through `systemd-resolved` settings.
+
+Here are the steps:
+
+1. **Edit the `systemd-resolved` configuration file**:
+   Open the `resolved.conf` file in a text editor:
+   ```bash
+   sudo nano /etc/systemd/resolved.conf
+   ```
+
+2. **Set the DNS server**:
+   Find the line starting with `#DNS=` and change it to:
+   ```plaintext
+   DNS=192.168.230.159
+   ```
+
+3. **Restart the `systemd-resolved` service**:
+   Save the file and restart the service to apply the changes:
+   ```bash
+   sudo systemctl restart systemd-resolved
+   ```
+
+4. **Verify the changes**:
+   Check if the DNS server is correctly set:
+   ```bash
+   systemd-resolve --status
+   # or 
+   resolvectl status
+   ```
+
+
+
+
+```bash
+sudo su
+cat /etc/resolv.conf
+mv /etc/resolv.conf /etc/resolv.conf.bak
+vim /etc/resolv.conf # fill with output of cat
+```
