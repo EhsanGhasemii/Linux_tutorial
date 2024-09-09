@@ -311,3 +311,27 @@ cat /etc/resolv.conf
 mv /etc/resolv.conf /etc/resolv.conf.bak
 vim /etc/resolv.conf # fill with output of cat + your dns server
 ```
+
+
+
+
+
+
+
+
+## GPU-Server
+
+How to run your script code in background and not terminated when you leave the server?
+```bash
+nohup python <your_script>.py &
+```
+
+How to show your process that is running?
+```bash
+ps
+```
+
+How to kill your process?
+```bash
+kill -9 <your_process_id>
+```
