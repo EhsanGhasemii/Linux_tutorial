@@ -335,3 +335,60 @@ How to kill your process?
 ```bash
 kill -9 <your_process_id>
 ```
+
+nohup will terminate your process if you leave the server through the command that I have writed. You can use screen through below commands. 
+
+
+1. **Install `screen` or `tmux`** (if not already installed):
+   ```bash
+   sudo apt-get install screen  # for screen
+   sudo apt-get install tmux    # for tmux
+   ```
+
+2. **Start a new session**:
+   - For `screen`:
+     ```bash
+     screen -S mysession
+     ```
+
+3. **Run your command**:
+   ```bash
+   python3 train.py
+   ```
+
+4. **Detach the session**:
+   - For `screen`: Press `Ctrl+A` then `D`.
+
+5. **Reattach the session** when you log back in:
+   - For `screen`:
+     ```bash
+     screen -r mysession
+     ```
+
+
+To terminate a `screen` session and stop the process running within it, you can follow these steps:
+
+1. **Reattach to the screen session**:
+   ```bash
+   screen -r mysession
+   ```
+
+2. **Terminate the process**:
+   - If you want to stop the process gracefully, you can use the appropriate command (e.g., `Ctrl+C` for many command-line applications).
+   - If you need to forcefully terminate the process, you can find the process ID (PID) and use the `kill` command:
+     ```bash
+     ps aux | grep train.py
+     kill -9 <PID>
+     ```
+
+3. **Exit the screen session**:
+   ```bash
+   exit
+   ```
+   This will close the screen session.
+
+Alternatively, if you know the screen session ID and want to terminate it directly without reattaching, you can use:
+```bash
+screen -X -S mysession quit
+```
+
