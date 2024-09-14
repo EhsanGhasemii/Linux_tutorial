@@ -392,3 +392,38 @@ Alternatively, if you know the screen session ID and want to terminate it direct
 screen -X -S mysession quit
 ```
 
+
+
+
+
+## Tensorboard
+
+
+### Option 1: Kill the Process Using Port 6006
+You can identify and stop the process using port 6006. Here’s how you can do it:
+
+#### On Linux or macOS:
+1. Find the process ID (PID) using port 6006:
+   ```bash
+   lsof -i :6006
+   ```
+2. Kill the process using the PID:
+   ```bash
+   kill -9 <PID>
+   ```
+
+### Option 2: Start TensorBoard on a Different Port
+You can start TensorBoard on a different port if port 6006 is already in use:
+```bash
+tensorboard --logdir runs --port 6007
+```
+
+### Option 3: Remove Previous Logs
+If you want to clear previous logs, you can delete the log directory:
+```bash
+rm -rf ./runs/
+```
+Then, you can start TensorBoard again:
+```bash
+tensorboard --logdir runs
+```
