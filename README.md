@@ -418,6 +418,14 @@ You can start TensorBoard on a different port if port 6006 is already in use:
 tensorboard --logdir runs --port 6007
 ```
 
+Or 
+
+```bash
+python -m tensorboard.main --logdir runs
+```
+
+
+
 ### Option 3: Remove Previous Logs
 If you want to clear previous logs, you can delete the log directory:
 ```bash
