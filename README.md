@@ -424,6 +424,10 @@ Or
 python -m tensorboard.main --logdir runs
 ```
 
+How to forward the port from a connected server via ssh to your localhost?
+```bash
+ssh username@192.168.1.1 -L 6006:localhost:6006
+```
 
 
 ### Option 3: Remove Previous Logs
