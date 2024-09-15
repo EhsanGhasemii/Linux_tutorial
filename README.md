@@ -439,3 +439,16 @@ Then, you can start TensorBoard again:
 ```bash
 tensorboard --logdir runs
 ```
+
+
+
+
+
+## venv
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+deactivate
+```
+
