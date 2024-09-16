@@ -452,3 +452,13 @@ source venv/bin/activate
 deactivate
 ```
 
+
+
+## pip 
+
+```bash
+RUN pip config --user set global.index-url http://repo.farbeen.local/repository/pypi/simple
+RUN pip config --user set global.trusted-host repo.farbeen.local
+pip config --user unset global.index-url
+```
+
