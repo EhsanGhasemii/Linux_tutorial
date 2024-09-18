@@ -240,6 +240,13 @@ How to record voice?
 ffmpeg -f alsa -i default output.wav
 ```
 
+How to extract audio of a video?
+```bash
+ffmpeg -i input_video.mp4 -map 0:a -codec:a libmp3lame -qscale:a 2 output_audio.mp3
+```
+
+
+
 
 ## Network
 How to reset your network config:
