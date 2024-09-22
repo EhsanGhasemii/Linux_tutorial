@@ -245,6 +245,23 @@ How to extract audio of a video?
 ffmpeg -i input_video.mp4 -map 0:a -codec:a libmp3lame -qscale:a 2 output_audio.mp3
 ```
 
+You can use FFmpeg to crop an audio file from the 5th to the 10th second with the following command:
+
+```bash
+ffmpeg -i input_audio.mp3 -ss 00:00:05 -to 00:00:10 -c copy output_audio.mp3
+```
+
+Here's a breakdown of the command:
+- `-i input_audio.mp3`: Specifies the input audio file.
+- `-ss 00:00:05`: Sets the start time to 5 seconds.
+- `-to 00:00:10`: Sets the end time to 10 seconds.
+- `-c copy`: Copies the audio stream without re-encoding.
+- `output_audio.mp3`: Specifies the output audio file.
+
+
+
+
+
 
 
 
