@@ -469,3 +469,57 @@ RUN pip config --user set global.trusted-host repo.farbeen.local
 pip config --user unset global.index-url
 ```
 
+
+## zsh
+To achieve this, you can install and configure `zsh` with the `zsh-autosuggestions` plugin. Here are the steps:
+
+1. **Install Zsh**:
+   - On Ubuntu/Debian:
+     ```sh
+     sudo apt install zsh
+     ```
+   - On macOS:
+     ```sh
+     brew install zsh
+     ```
+
+2. **Set Zsh as the default shell**:
+   ```sh
+   chsh -s $(which zsh)
+   ```
+
+3. **Install Oh My Zsh** (a framework for managing your Zsh configuration):
+   ```sh
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   ```
+
+4. **Install `zsh-autosuggestions` plugin**:
+   ```sh
+   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+   ```
+
+5. **Enable the plugin**:
+   - Open your `.zshrc` file:
+     ```sh
+     nano ~/.zshrc
+     ```
+   - Add `zsh-autosuggestions` to the list of plugins:
+     ```sh
+     plugins=(git zsh-autosuggestions)
+     ```
+   - Save and close the file, then source it:
+     ```sh
+     source ~/.zshrc
+     ```
+
+6. **Configure history search**:
+   - Add the following lines to your `.zshrc` file to enable history search:
+     ```sh
+     bindkey '^[[A' history-search-backward
+     bindkey '^[[B' history-search-forward
+     ```
+
+After completing these steps, when you type `nvim` and press the up arrow key, Zsh will suggest previous commands that start with `nvim`.
+
+
+
