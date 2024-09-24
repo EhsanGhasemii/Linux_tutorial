@@ -539,4 +539,11 @@ To achieve this, you can install and configure `zsh` with the `zsh-autosuggestio
 After completing these steps, when you type `nvim` and press the up arrow key, Zsh will suggest previous commands that start with `nvim`.
 
 
+## python webserver
+How to share your directory on inner network?
+```bash
+python -m http.server
+```
+
+
 
