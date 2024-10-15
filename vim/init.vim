@@ -1,3 +1,6 @@
+" Set the runtime path to include your plugins
+"set runtimepath^=/home/ehsan/.local/share/nvim/site/pack/plugins/start/*
+
 set number " Display line number on the left side. 
 set ls=2 " This makes Vim show a status line even shen only one window is shown. 
 filetype plugin on " This line enables loading the plugin files for specific file types. 
