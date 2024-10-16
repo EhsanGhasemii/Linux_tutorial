@@ -258,6 +258,11 @@ Here's a breakdown of the command:
 - `-c copy`: Copies the audio stream without re-encoding.
 - `output_audio.mp3`: Specifies the output audio file.
 
+How to find informations of an audio?
+```bash
+ffprobe -show_streams -select_streams a <your_audio.mp3> 
+```
+
 
 
 
