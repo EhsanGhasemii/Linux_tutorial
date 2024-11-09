@@ -1,6 +1,3 @@
-" Set the runtime path to include your plugins
-"set runtimepath^=/home/ehsan/.local/share/nvim/site/pack/plugins/start/*
-
 set number " Display line number on the left side. 
 set ls=2 " This makes Vim show a status line even shen only one window is shown. 
 filetype plugin on " This line enables loading the plugin files for specific file types. 
@@ -29,7 +26,7 @@ set showmatch " Show matching brackets
 set hlsearch " Highlight in serach
 set ignorecase " Ignore case in search
 set noswapfile " Avoid swap files
-set mouse=a " Mouse Integration
+"set mouse=a " Mouse Integration
 
 " auto complete for ( , " , ' , [ , {
 "inoremap    ( ()<Left>
@@ -62,14 +59,14 @@ nnoremap <silent> <F2> <<_
 ""noremap <silent> K :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR> " commenting line with F6
 ""noremap <silent> L :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR> " uncommenting line with F7
 
-noremap <silent> #5 :!./% <CR> "execute bash & python script with F5
+"noremap <silent> #5 :!./% <CR> "execute bash & python script with F5
 "noremap <silent> #3 :bp<CR> " switch to pervious tab with F3
 "noremap <silent> #4 :bn<CR> " switch to next tab with F2
 noremap <silent> #5 :tabprevious<CR> " switch to previous tab with F3
 noremap <silent> #6 :tabnext<CR> " switch to next tab with F2
 
-map <F8> :setlocal spell! spelllang=en_us<CR> " check spelling with F8
-set pastetoggle=<F2> " Paste mode toggle with F2 Pastmode disable auto-indent and bracket auto-compelation and it helps you to 
+"map <F8> :setlocal spell! spelllang=en_us<CR> " check spelling with F8
+"set pastetoggle=<F6> " Paste mode toggle with F2 Pastmode disable auto-indent and bracket auto-compelation and it helps you to 
 
 
 " PLUGINS
@@ -104,3 +101,4 @@ let NERDTreeMapOpenInTab='<c-t>'
 " jedi-vim plugin
 
 "" indentline-vim
+
