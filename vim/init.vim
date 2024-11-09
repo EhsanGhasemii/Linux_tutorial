@@ -110,6 +110,5 @@ let NERDTreeMapOpenInTab='<c-t>'
 set cursorline
 
 " Set the highlight group for the cursor line
-highlight CursorLine cterm=NONE ctermbg=darkgrey guibg=lightgrey
-
+highlight CursorLine cterm=NONE ctermbg=16 guibg=lightgrey
 
