@@ -102,3 +102,14 @@ let NERDTreeMapOpenInTab='<c-t>'
 
 "" indentline-vim
 
+
+
+
+
+" Enable cursor line highlighting
+set cursorline
+
+" Set the highlight group for the cursor line
+highlight CursorLine cterm=NONE ctermbg=darkgrey guibg=lightgrey
+
+
