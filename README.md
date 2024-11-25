@@ -553,6 +553,7 @@ python -m http.server
 ## How to see the ip and ports that you can see in your machine?
 ```bash
 nc -vz 192.168.888.888 50090
+telnet 192.168.888.888 50057
 ```
 
 
