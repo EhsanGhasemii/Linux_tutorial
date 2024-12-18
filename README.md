@@ -556,6 +556,13 @@ nc -vz 192.168.888.888 50090
 telnet 192.168.888.888 50057
 ```
 
+## How to fine version of ubunut?
+```bash
+lsb_release -a
+cat /etc/os-release
+```
+
+
 
 
 
