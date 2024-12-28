@@ -36,7 +36,8 @@ set noswapfile " Avoid swap files
 "inoremap    [ []<Left>
 "inoremap    { {}<Left>
 
-autocmd BufEnter * if &filetype ==# 'c' || &filetype ==# 'cpp' || &filetype ==# 'java' || &filetype ==# 'scala' | let b:comment_leader = '// ' | endif
+autocmd BufEnter *.cu let b:comment_leader = '// '
+autocmd BufEnter * if &filetype ==# 'c' || &filetype ==# 'cpp' || &filetype ==# 'cu' || &filetype ==# 'java' || &filetype ==# 'scala' | let b:comment_leader = '// ' | endif
 autocmd BufEnter * if &filetype ==# 'sh' || &filetype ==# 'ruby' || &filetype ==# 'python' | let b:comment_leader = '# ' | endif
 autocmd BufEnter * if &filetype ==# 'vim' | let b:comment_leader = '"' | endif
 
