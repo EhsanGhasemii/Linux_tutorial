@@ -15,3 +15,9 @@ Where should you put your plugins?
 ## Somethings to be corrected
 1. copy/paste mode in server side. 
 2. create git projects in server side. 
+
+
+## How to find just pure words in nvim?
+```nvim
+/\<example\>
+```
