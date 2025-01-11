@@ -263,6 +263,10 @@ How to find informations of an audio?
 ffprobe -show_streams -select_streams a <your_audio.mp3> 
 ```
 
+How to convert a mp3 audio file to a wav file?
+```bash
+ffmpeg -i input.mp3 output.wav
+```
 
 
 
