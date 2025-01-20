@@ -267,6 +267,10 @@ How to convert a mp3 audio file to a wav file?
 ```bash
 ffmpeg -i input.mp3 output.wav
 ```
+How to play just a specefic window of an audio?
+```bash
+ffplay -i 0.wav -ss 00:00:00.380 -t 00:00:01.1 #ffplay -i 0.wav -ss start -t duration
+```
 
 
 
