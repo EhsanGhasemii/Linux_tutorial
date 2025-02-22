@@ -564,6 +564,11 @@ nc -vz 192.168.888.888 50090
 telnet 192.168.888.888 50057
 ```
 
+## How to see tcp ip that in used? 
+```bash 
+sudo ss -tulpn 
+```
+
 ## How to fine version of ubunut?
 ```bash
 lsb_release -a
