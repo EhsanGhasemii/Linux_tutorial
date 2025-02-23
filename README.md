@@ -569,12 +569,16 @@ telnet 192.168.888.888 50057
 sudo ss -tulpn 
 ```
 
-## How to fine version of ubunut?
+## How to find version of ubunut?
 ```bash
 lsb_release -a
 cat /etc/os-release
 ```
 
+## How to show an image in linux with command? 
+```bash
+eog <your_image_name.jpg>
+```
 
 
 
