@@ -21,3 +21,8 @@ Where should you put your plugins?
 ```nvim
 /\<example\>
 ```
+
+## How to just process a specific lines in nvim?
+```nvim 
+:110,120s/<first_word>/<second_word>/gc
+```
