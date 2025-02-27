@@ -26,3 +26,6 @@ Where should you put your plugins?
 ```nvim 
 :110,120s/<first_word>/<second_word>/gc
 ```
+
+## ShortCut way to search just a specific word in nvim.
+go to the word and press 'SHIFT' + '8' in visual mode.
