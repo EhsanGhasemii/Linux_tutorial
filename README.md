@@ -580,7 +580,14 @@ cat /etc/os-release
 eog <your_image_name.jpg>
 ```
 
-
+## How to add your main user to sudoer group to not write password every time that use 'sudo'?
+```bash
+sudo visudo
+```
+and add below line
+```bash
+username ALL=(ALL) NOPASSWD: ALL
+```
 
 
 
