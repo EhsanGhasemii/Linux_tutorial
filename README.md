@@ -465,6 +465,53 @@ How to forward the port from a connected server via ssh to your localhost?
 ```bash
 ssh username@192.168.1.1 -L 6006:localhost:6006
 ```
+How to add a public key to your remote server? 
+
+If `ssh-copy-id` isn’t available, do this:
+
+On your **local machine**, show your public key:
+
+```bash
+cat ~/.ssh/id_rsa.pub
+```
+
+On the **SSH server**:
+
+1. Connect using password:
+
+   ```bash
+   ssh username@server_ip
+   ```
+2. Create `.ssh` directory if it doesn't exist:
+
+   ```bash
+   mkdir -p ~/.ssh
+   chmod 700 ~/.ssh
+   ```
+3. Paste your public key into the `authorized_keys` file:
+
+   ```bash
+   nano ~/.ssh/authorized_keys
+   ```
+
+   (Paste the key and save)
+4. Set the right permissions:
+
+   ```bash
+   chmod 600 ~/.ssh/authorized_keys
+   ```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ### Option 3: Remove Previous Logs
