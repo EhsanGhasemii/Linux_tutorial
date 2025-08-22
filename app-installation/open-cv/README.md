@@ -28,4 +28,83 @@ sudo make install
 sudo ldconfig
 ```
 
+### Install with open-gl
+
+
+```
+rm -rf build
+mkdir build && cd build
+cmake -D CMAKE_BUILD_TYPE=Release \
+      -D CMAKE_INSTALL_PREFIX=/usr/local \
+      -D WITH_FFMPEG=ON \
+      -D WITH_GTK=ON \
+      -D WITH_QT=OFF \
+      -D WITH_OPENGL=ON \
+      -D BUILD_EXAMPLES=OFF \
+      -D BUILD_TESTS=OFF \
+      -D BUILD_PERF_TESTS=OFF \
+      ..
+make -j$(nproc)
+make install
+```
+
+
+But first should install its dependencies
+
+
+Got it 👍 That error isn’t about the OpenGL packages — it’s because you accidentally have a **wrong PPA entry** in your container:
+
+```
+http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu questing
+```
+
+There is **no Ubuntu release named “questing”** → so `apt` is choking on that line. That’s why your install command failed.
+
+---
+
+### ✅ Fix Steps
+
+1. **Remove the bad PPA line**
+   Open the file that contains the PPA reference:
+
+```bash
+grep -R "ubuntu-toolchain-r" /etc/apt/sources.list /etc/apt/sources.list.d/
+```
+
+It will show something like:
+
+```
+/etc/apt/sources.list.d/toolchain.list:deb http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu questing main
+```
+
+Remove or comment out that line (or just delete the file):
+
+```bash
+rm -f /etc/apt/sources.list.d/*toolchain*.list
+```
+
+2. **Update again**
+
+```bash
+apt-get update
+```
+
+Now it should succeed without the 404.
+
+3. **Install the OpenGL + GTK deps**
+
+```bash
+apt-get install -y \
+    libgtk-3-dev libcanberra-gtk3-dev \
+    libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev
+```
+
+---
+
+⚡ Important: Since your base is **Debian Bullseye** (`deb.debian.org/debian bullseye` in logs), you don’t need the Ubuntu toolchain PPA at all — it only works on Ubuntu. On Debian, stick to Debian repos.
+
+---
+
+👉 Do you want me to give you the **clean minimal dependency install line for Debian Bullseye + OpenCV GUI/FFmpeg** (no broken PPAs)?
+
 
