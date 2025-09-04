@@ -3,6 +3,13 @@
 
 ### Minimal build with FFmpeg support
 
+Install ffmpeg requirements.
+```bash
+apt update
+apt install -y libavcodec-dev libavformat-dev libavutil-dev libswscale-dev
+```
+
+
 ```bash
 cd ~
 wget -O opencv.zip https://github.com/opencv/opencv/archive/4.x.zip
