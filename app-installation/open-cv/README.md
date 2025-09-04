@@ -115,3 +115,28 @@ apt-get install -y \
 👉 Do you want me to give you the **clean minimal dependency install line for Debian Bullseye + OpenCV GUI/FFmpeg** (no broken PPAs)?
 
 
+
+### How to check opencv installation configurations? 
+Use below cpp code. 
+```cpp
+#include <opencv2/opencv.hpp>
+#include <iostream>
+int main() {
+    std::cout << "Available backends: " << cv::getBuildInformation() << std::endl;
+    return 0;
+}
+```
+
+and below one. 
+```cpp
+#include <opencv2/opencv.hpp>
+#include <iostream>
+int main() {
+    cv::VideoCapture cap("/path/to/your/video");
+    if (!cap.isOpened()) { std::cerr << "Cannot open video file!" << std::endl; return -1; }
+    std::cout << "Video opened successfully!" << std::endl;
+    return 0;
+}
+```
+
+
