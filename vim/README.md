@@ -39,3 +39,10 @@ go to the word and press 'SHIFT' + '8' in visual mode.
 5. Press `A` to enter insert mode at the end of each selected line.
 6. Type the word you want to add.
 7. Press `Esc` to apply the changes to all selected lines.
+
+
+
+## How to create incremental numbers in nvim?
+```bash
+put = range(1, n)
+```
