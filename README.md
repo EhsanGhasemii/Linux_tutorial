@@ -637,6 +637,17 @@ username ALL=(ALL) NOPASSWD: ALL
 ```
 
 
+## How to boot an usb with an input ubuntu iso file? 
+```
+# Unmount first (important!)
+sudo umount /dev/sda1
+
+# Write ISO directly to USB
+sudo dd if=slax-version-x86_64.iso of=/dev/sda bs=4M status=progress oflag=sync
+
+# Flush caches
+sync
+```
 
 
 
