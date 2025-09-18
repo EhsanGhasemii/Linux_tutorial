@@ -649,6 +649,34 @@ sudo dd if=slax-version-x86_64.iso of=/dev/sda bs=4M status=progress oflag=sync
 sync
 ```
 
+## How to transfer data between 2 computers that are connected to same network?
 
+via scp: 
+```bash
+sudo apt install openssh-server
+hostname -I
+scp user@source_IP:/path/to/files/* /path/to/destination/
+```
 
+via python http: 
+```bash
+cd /path/to/files
+python3 -m http.server 8080
+```
 
+* On the other machine, open browser or `wget`/`curl`:
+
+```bash
+wget http://<server_IP>:8080/filename
+```
+
+via FTP: 
+
+1. in server computer:
+```bash
+python3 -m pyftpdlib -p 2121 -w
+```
+2. in client computer: 
+```bash
+ftp <server_IP> 2121
+```
