@@ -680,3 +680,104 @@ python3 -m pyftpdlib -p 2121 -w
 ```bash
 ftp <server_IP> 2121
 ```
+
+
+
+## If  your monitor has conflicts with your gpu-laptop what should you do?
+3rd option has been workd for me. 
+Got it — thanks for summarizing again 🙏.
+What you’re describing is **classic NVIDIA + Wayland issue** on Ubuntu 22.04 with Asus TUF laptops:
+
+* The external monitor is detected (you can move the mouse).
+* But the screen stays black because **the display is wired directly to the NVIDIA GPU** and Wayland sometimes fails to present it.
+
+---
+
+### ✅ Step 1. Make sure NVIDIA driver is active
+
+You already have `nvidia-driver-580` and `nvidia-smi` works → good.
+
+Also check PRIME profile:
+
+```bash
+nvidia-settings
+```
+
+* Go to **PRIME Profiles**
+* Select **NVIDIA (Performance Mode)**
+* Log out and log back in
+
+(*If set to “Intel” or “Hybrid”, HDMI/DP often stays black on these laptops.*)
+
+---
+
+### ✅ Step 2. Try switching from Wayland → Xorg
+
+Ubuntu defaults to Wayland, which still has rough edges with NVIDIA multi-monitor.
+Switching to Xorg usually fixes the black screen.
+
+1. Log out of your session
+2. At the login screen, click the ⚙️ (gear icon) in the bottom right
+3. Select **Ubuntu on Xorg**
+4. Log back in
+
+Now run:
+
+```bash
+xrandr
+```
+
+You should see `HDMI-1` or `DP-1`, and enabling the external display should work:
+
+```bash
+xrandr --output HDMI-1 --auto --right-of eDP-1
+```
+
+---
+
+### ✅ Step 3. If you want to stay on Wayland
+
+On Wayland you can’t use `xrandr`. Instead:
+
+* Open **Settings → Displays**
+* You should see both screens (Laptop + External)
+* Place them side by side, set resolution, and **Apply**
+
+If the external screen still shows black, add Wayland permissions for NVIDIA:
+
+```bash
+sudo nano /etc/gdm3/custom.conf
+```
+
+Uncomment:
+
+```
+#WaylandEnable=false
+```
+
+→ so it becomes:
+
+```
+WaylandEnable=false
+```
+
+Save + reboot. This forces GDM to run on Xorg (stable with NVIDIA).
+
+---
+
+### ✅ Step 4. Double-check cable/port
+
+* Use a **direct HDMI/DP cable** (not cheap adapters).
+* Try a different port if available.
+
+---
+
+⚡ In short:
+
+* If you need quick fix → **log in with “Ubuntu on Xorg”**.
+* If you want to stay on Wayland → sometimes works after NVIDIA PRIME set to “Performance” and configuring Displays, but Xorg is far more stable on Asus TUF + NVIDIA external monitors.
+
+---
+
+👉 Do you want me to give you the **permanent fix for booting into Xorg by default** so you don’t have to switch manually each time you log in?
+
