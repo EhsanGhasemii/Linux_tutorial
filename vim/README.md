@@ -46,3 +46,56 @@ go to the word and press 'SHIFT' + '8' in visual mode.
 ```bash
 put = range(1, n)
 ```
+
+## How to move the screen up/down without moving the cursor?
+Use ctrl+e and ctrl+y
+
+## How to make a word upper/lower charactrized? 
+In **Neovim (nvim)**, you can easily change the case of selected text. Here are the main ways:
+
+---
+
+### 1. **Using Visual Mode**
+
+1. Select the text:
+
+   * `v` → character-wise selection
+   * `V` → line-wise selection
+   * `Ctrl+v` → block-wise selection
+2. Then:
+
+   * `U` → make it **uppercase**
+   * `u` → make it **lowercase**
+
+---
+
+### 2. **Using Normal Mode on a Motion**
+
+You don’t even need to select. You can apply directly:
+
+* `gU<motion>` → uppercase
+* `gu<motion>` → lowercase
+
+Examples:
+
+* `gUw` → uppercase the current word
+* `guw` → lowercase the current word
+* `gU}` → uppercase until end of paragraph
+* `guap` → lowercase a paragraph
+
+---
+
+### 3. **With Visual Selection + `gU` / `gu`**
+
+* Select text with `v`, then press `gU` for uppercase or `gu` for lowercase.
+
+---
+
+👉 Quick example:
+
+* Place cursor on a word
+* Type `gUw` → it becomes **ALLCAPS**
+* Type `guw` → it becomes lowercase
+
+---
+
