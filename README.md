@@ -272,6 +272,59 @@ How to play just a specefic window of an audio?
 ffplay -i 0.wav -ss 00:00:00.380 -t 00:00:01.1 #ffplay -i 0.wav -ss start -t duration
 ```
 
+How to crop a video with ffmpeg? 
+Good question — you can easily do this using **FFmpeg** with a single command.
+
+---
+
+### ✅ **Option 1 — Limit by frame count (recommended)**
+
+This tells FFmpeg to only **keep the first 10 frames**:
+
+```bash
+ffmpeg -i input.mp4 -vframes 10 -q:v 2 output.mp4
+```
+
+**Explanation:**
+
+* `-i input.mp4` → input video file
+* `-vframes 10` → stop after 10 video frames
+* `-q:v 2` → set output quality (lower is better; optional)
+* `output.mp4` → output file containing only the first 10 frames
+
+---
+
+### ✅ **Option 2 — Limit by time (if you know frame rate)**
+
+If your video has a known FPS (say 30 fps), you can also crop by time:
+
+```bash
+ffmpeg -i input.mp4 -t 0.33 -c copy output.mp4
+```
+
+**Explanation:**
+
+* `-t 0.33` → duration (in seconds) to keep (10 frames / 30 fps = 0.33 s)
+* `-c copy` → copy codec (no re-encoding, very fast)
+
+---
+
+### ✅ **Option 3 — Extract the first 10 frames as images**
+
+If you just want the frames (not another video):
+
+```bash
+ffmpeg -i input.mp4 -vframes 10 frames_%03d.jpg
+```
+
+This will create:
+
+```
+frames_001.jpg
+frames_002.jpg
+...
+frames_010.jpg
+```
 
 
 
