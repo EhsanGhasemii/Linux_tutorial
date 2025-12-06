@@ -326,6 +326,17 @@ frames_002.jpg
 frames_010.jpg
 ```
 
+How to count number of frmaes of a video?
+
+```bash
+ffprobe -v error -count_frames -select_streams v:0 \
+-show_entries stream=nb_read_frames -of default=nokey=1:noprint_wrappers=1 input.mp4
+```
+
+How to extract a specific frame of a video as an image file?
+```bash
+ffmpeg -i input.mp4 -vf "select=eq(n\,150)" -vsync vfr frame150.png
+```
 
 
 
