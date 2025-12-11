@@ -845,3 +845,8 @@ Save + reboot. This forces GDM to run on Xorg (stable with NVIDIA).
 
 👉 Do you want me to give you the **permanent fix for booting into Xorg by default** so you don’t have to switch manually each time you log in?
 
+
+
+## Some usefull applications
+To draw an electrical circuit online use below link. 
+https://www.circuitlab.com/editor/
