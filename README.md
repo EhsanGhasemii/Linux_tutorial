@@ -861,6 +861,13 @@ sudo nvim /etc/apt/source.list
 
 change all prefix parts from `us` to `ir`.
 
+if os is as type as deb you should below file as source.list
+
+```bash
+deb https://ftp.debian.org/debian bullseye main contrib non-free
+deb https://ftp.debian.org/debian bullseye-updates main contrib non-free
+deb https://security.debian.org/debian-security bullseye-security main contrib non-free
+```
 
 
 
