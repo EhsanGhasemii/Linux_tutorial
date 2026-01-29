@@ -850,3 +850,27 @@ Save + reboot. This forces GDM to run on Xorg (stable with NVIDIA).
 ## Some usefull applications
 To draw an electrical circuit online use below link. 
 https://www.circuitlab.com/editor/
+
+
+
+## Where should you change apt resource?
+
+```bash
+sudo nvim /etc/apt/source.list
+```
+
+change all prefix parts from `us` to `ir`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
