@@ -871,7 +871,11 @@ deb https://security.debian.org/debian-security bullseye-security main contrib n
 
 
 
+## How can you connect to a remote server via an openvpn configuration? 
 
+```bash
+sudo openvpn --config /path/to/ghasemi.ovpn
+```
 
 
 
