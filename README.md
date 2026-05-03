@@ -879,6 +879,14 @@ sudo openvpn --config /path/to/ghasemi.ovpn
 
 
 
+## How to add fonts to your Computer and find it? 
+
+```bash
+mkdir -p /usr/share/fonts/truetype/custom/
+cp <your_font.ttf> /usr/share/fonts/truetype/custom/
+fc-cache -fv
+fc-list :lang=fa
+```
 
 
 
