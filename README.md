@@ -888,6 +888,58 @@ fc-cache -fv
 fc-list :lang=fa
 ```
 
+## How to use proxy for `apt` commands?
+You can use `apt` behind an HTTP/HTTPS proxy in a few different ways depending on whether you want it temporary, permanent, authenticated, or SOCKS-based.
+
+### Temporary proxy for one command
+
+Use environment variables:
+
+```bash
+sudo http_proxy="http://proxy.example.com:8080" \
+     https_proxy="http://proxy.example.com:8080" \
+     apt update
+```
+
+Or:
+
+```bash
+export http_proxy="http://proxy.example.com:8080"
+export https_proxy="http://proxy.example.com:8080"
+
+sudo -E apt update
+```
+
+`-E` preserves the environment variables when using `sudo`.
+
+---
+
+### One-line example for a local proxy
+
+For something like Clash, V2Ray, or Privoxy running locally:
+
+```bash
+sudo http_proxy="http://127.0.0.1:7890" \
+     https_proxy="http://127.0.0.1:7890" \
+     apt update
+```
+
+
+
+For `pip`, you can use proxies similarly.
+
+## Temporary proxy for one command
+
+```bash
+pip install requests --proxy http://proxy.example.com:8080
+```
+
+With HTTPS:
+
+```bash
+pip install numpy --proxy https://proxy.example.com:8080
+```
+
 
 
 
